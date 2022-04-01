@@ -1,0 +1,32 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.web.configs;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+/**
+ *
+ * @author kietdev
+ */
+public class DispatcherServletInit extends AbstractAnnotationConfigDispatcherServletInitializer{
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{
+            WebAppContextConfig.class
+        };
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        throw new UnsupportedOperationException();
+    }
+    
+}

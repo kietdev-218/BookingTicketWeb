@@ -14,7 +14,7 @@ public class DispatcherServletInit extends AbstractAnnotationConfigDispatcherSer
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class DispatcherServletInit extends AbstractAnnotationConfigDispatcherSer
 
     @Override
     protected String[] getServletMappings() {
-        throw new UnsupportedOperationException();
+        return new String[] {"/"};
     }
     
 }

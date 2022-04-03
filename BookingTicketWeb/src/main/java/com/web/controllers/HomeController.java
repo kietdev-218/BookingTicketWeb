@@ -5,6 +5,8 @@
 package com.web.controllers;
 
 import com.web.pojo.User;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,15 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index(Model model) {
+        List<String> cates = new ArrayList<>();
+        cates.add("Mobile");
+        cates.add("Laptop");
+        cates.add("Desktop");
+        cates.add("Tablet");
+        
         model.addAttribute("name", "Nguyen Anh Kiet");
+        model.addAttribute("categories", cates);
+
         return "index";
     }
 
@@ -61,11 +71,12 @@ public class HomeController {
     @PostMapping("/login")
     public String loginHandler(Model model,
             @ModelAttribute(value = "user") User user) {
-        if (user.getUsername().equals("admin") && user.getPassword().equals("123456"))
+        if (user.getUsername().equals("admin") && user.getPassword().equals("123456")) {
             model.addAttribute("msg", "SUCCESSFUL");
-        else
+        } else {
             model.addAttribute("msg", "FAILED");
-        
+        }
+
         return "login";
     }
 }

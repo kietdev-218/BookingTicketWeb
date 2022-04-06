@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,12 @@
     </head>
     <body>
         <h1>LOGIN</h1>
-        <h1>${msg}</h1>
+        <c:if test="${msg.equals('SUCCESSFUL')}">
+            <h1 style="color:darkblue;">${msg}</h1>
+        </c:if>
+        <c:if test="${msg.equals('FAILED')}">
+            <h1 style="color:red;">${msg}</h1>
+        </c:if>
         <form:form method="post" action="/BookingTicketWeb/login" modelAttribute="user">
             Username: <form:input path="username"/>
             Password: <form:password path="password"/>

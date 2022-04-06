@@ -4,6 +4,7 @@
  */
 package com.web.controllers;
 import com.web.pojo.Category;
+import com.web.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +19,12 @@ import java.util.List;
  */
 @Controller
 public class HomeController {
+    @Autowired
+    private CategoryService categoryService;
     
     @RequestMapping("/")
     public String index(Model model){
-        model.addAttribute("categories","");
+        model.addAttribute("categories",categoryService.getCategories());
         return "index";
     }
 }

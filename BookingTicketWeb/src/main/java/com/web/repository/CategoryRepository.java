@@ -11,6 +11,7 @@ import java.util.List;
  *
  * @author kietdev
  */
+
 public interface CategoryRepository {
     List<Category> getCategories();
 }

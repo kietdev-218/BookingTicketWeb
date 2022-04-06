@@ -62,7 +62,7 @@
                         <ul id="navigation">
                             <li>
                                 <span class="sub-nav-toggle plus"></span>
-                                <a href="#">Link</a>
+                                <a href="#">${categories}</a>
                             </li>
                         </ul>
                     </nav>

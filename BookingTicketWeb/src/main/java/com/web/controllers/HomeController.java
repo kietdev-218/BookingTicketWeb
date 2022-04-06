@@ -20,11 +20,11 @@ import java.util.List;
 @Controller
 public class HomeController {
     @Autowired
-    private CategoryService categoryService;
-    
+    private CategoryService categoryService ;
+ 
     @RequestMapping("/")
     public String index(Model model){
-        model.addAttribute("categories",categoryService.getCategories());
+        model.addAttribute("categories", this.categoryService.getCategories());
         return "index";
     }
 }

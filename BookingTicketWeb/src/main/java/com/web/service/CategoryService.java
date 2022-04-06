@@ -9,9 +9,8 @@ import java.util.List;
 
 /**
  *
- * @author Man
+ * @author kietdev
  */
 public interface CategoryService {
     List<Category> getCategories();
-    
 }

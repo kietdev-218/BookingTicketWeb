@@ -72,9 +72,58 @@
                         <a href="#" class="btn btn--sign login-window">Sign in</a>
                         <a href="#" class="btn btn-md btn--warning btn--book login-window">Book a ticket</a>
                     </div>
-
                 </div>
             </header>
+
+            <!-- Search bar -->
+            <div class="search-wrapper">
+                <div class="container container--add">
+                    <form id='search-form' method='get' class="search">
+                        <input type="text" class="search__field" placeholder="Search">
+                        <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
+                            <option value="1" selected='selected'>All</option>
+                            <option value="2">By year</option>
+                            <option value="3">By producer</option>
+                            <option value="4">By title</option>
+                            <option value="5">By year</option>
+                            <option value="6">By title</option>
+                        </select>
+                        <button type='submit' class="btn btn-md btn--danger search__button">search a movie</button>
+                    </form>
+                </div>
+            </div>
         </div>
+        <!-- JavaScript-->
+        <!-- jQuery 3.1.1--> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="<c:url value="/js/external/jquery-3.1.1.min.js"/>"><\/script>')</script>
+        <!-- Migrate --> 
+        <script src="<c:url value="/js/external/jquery-migrate-1.2.1.min.js"/>"></script>
+        <!-- jQuery UI -->
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <!-- Bootstrap 3--> 
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+        <!-- Mobile menu -->
+        <script src="<c:url value="/js/jquery.mobile.menu.js"/>"></script>
+        <!-- Select -->
+        <script src="<c:url value="/js/external/jquery.selectbox-0.2.min.js"/>"></script> 
+
+        <!-- Stars rate -->
+        <script src="<c:url value="/js/external/jquery.raty.js"/>"></script>
+
+        <!-- Form element -->
+        <script src="<c:url value="/js/external/form-element.js"/>"></script>
+        <!-- Form validation -->
+        <script src="<c:url value="/js/form.js"/>"></script>
+
+        <!-- Custom -->
+        <script src="<c:url value="/js/custom.js"/>"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                init_MovieList();
+            });
+        </script>
     </body>
 </html>

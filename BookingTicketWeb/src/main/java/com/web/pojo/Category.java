@@ -7,7 +7,6 @@ package com.web.pojo;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,11 +40,11 @@ public class Category implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCate")
-    private Collection<Ticket> ticketCollection;
+    @OneToMany(mappedBy = "idcate")
+    private Collection<Tour> tourCollection;
 
     public Category() {
     }
@@ -76,12 +75,12 @@ public class Category implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Ticket> getTicketCollection() {
-        return ticketCollection;
+    public Collection<Tour> getTourCollection() {
+        return tourCollection;
     }
 
-    public void setTicketCollection(Collection<Ticket> ticketCollection) {
-        this.ticketCollection = ticketCollection;
+    public void setTourCollection(Collection<Tour> tourCollection) {
+        this.tourCollection = tourCollection;
     }
 
     @Override
@@ -106,8 +105,7 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-//        return "com.web.pojo.Category[ id=" + id + " ]";
-          return name;
+        return "com.web.pojo.Category[ id=" + id + " ]";
     }
     
 }

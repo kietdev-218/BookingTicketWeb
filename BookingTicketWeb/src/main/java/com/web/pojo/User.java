@@ -10,9 +10,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -53,8 +53,12 @@ public class User implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "password")
     private String password;
-    @OneToMany(mappedBy = "email")
-    private Collection<Ticket> ticketCollection;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "role")
+    private int role;
+    @ManyToMany(mappedBy = "userCollection")
+    private Collection<Tour> tourCollection;
 
     public User() {
     }
@@ -63,11 +67,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public User(String email, String fristName, String lastName, String password) {
+    public User(String email, String fristName, String lastName, String password, int role) {
         this.email = email;
         this.fristName = fristName;
         this.lastName = lastName;
         this.password = password;
+        this.role = role;
     }
 
     public String getEmail() {
@@ -102,13 +107,21 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @XmlTransient
-    public Collection<Ticket> getTicketCollection() {
-        return ticketCollection;
+    public int getRole() {
+        return role;
     }
 
-    public void setTicketCollection(Collection<Ticket> ticketCollection) {
-        this.ticketCollection = ticketCollection;
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    @XmlTransient
+    public Collection<Tour> getTourCollection() {
+        return tourCollection;
+    }
+
+    public void setTourCollection(Collection<Tour> tourCollection) {
+        this.tourCollection = tourCollection;
     }
 
     @Override

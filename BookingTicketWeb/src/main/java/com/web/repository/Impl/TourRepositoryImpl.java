@@ -70,4 +70,22 @@ public class TourRepositoryImpl implements TourRepository {
         return Integer.parseInt(re.toString());
     }
 
+    @Override
+    public boolean addOrUpdateTour(Tour tour) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(tour);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public Tour getTourById(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Tour.class, id);
+    }
+
 }

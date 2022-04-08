@@ -8,6 +8,7 @@ import com.web.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,5 +34,12 @@ public class HomeController {
         model.addAttribute("selectPage",page);
         model.addAttribute("tourCounter", this.tourService.countTour());
         return "index";
+    }
+    
+    @RequestMapping("/tours/{tourId}")
+    public String tourbookingdetail(Model model,
+            @PathVariable(name = "tourId") int id){
+        model.addAttribute("tour", this.tourService.getTourById(id));
+        return "tourbookingdetail";
     }
 }

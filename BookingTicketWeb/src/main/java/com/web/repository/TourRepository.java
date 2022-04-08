@@ -15,4 +15,6 @@ import java.util.List;
 public interface TourRepository {
     List<Tour> getTours(String kw, int page);
     int countTour();
+    Tour getTourById(int id);
+    boolean addOrUpdateTour(Tour tour);
 }

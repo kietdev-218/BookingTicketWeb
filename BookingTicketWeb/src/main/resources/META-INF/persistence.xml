@@ -6,6 +6,7 @@
     <class>com.web.pojo.Category</class>
     <class>com.web.pojo.User</class>
     <class>com.web.pojo.Ticket</class>
+    <class>com.web.pojo.Tour</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbbooking_ticket?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

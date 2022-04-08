@@ -6,12 +6,14 @@ package com.web.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import javax.annotation.Resource;
+import com.web.fomatters.CategoryFomatter;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -26,6 +28,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
+@EnableTransactionManagement
 @ComponentScan(basePackages = {
     "com.web.controllers",
     "com.web.repository",
@@ -43,7 +46,18 @@ public class WebAppContextConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
         registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
         registry.addResourceHandler("/fonts/**").addResourceLocations("/resources/fonts/");
-        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");        
+        registry.addResourceHandler("/admin/**").addResourceLocations("/resources/admin/");
+        registry.addResourceHandler("/admin/css/**").addResourceLocations("/resources/admin/css/");
+        registry.addResourceHandler("/admin/images/**").addResourceLocations("/resources/admin/images/");
+        registry.addResourceHandler("/admin/fonts/**").addResourceLocations("/resources/admin/fonts/");
+        registry.addResourceHandler("/admin/js/**").addResourceLocations("/resources/admin/js/");
+        registry.addResourceHandler("/admin/scss/**").addResourceLocations("/resources/admin/scss/");
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(new CategoryFomatter());
     }
 
     @Bean

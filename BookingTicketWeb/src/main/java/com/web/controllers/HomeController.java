@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.web.controllers;
-import com.web.pojo.Category;
 import com.web.service.CategoryService;
-//import com.web.service.TourService;
+import com.web.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -22,13 +22,24 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private CategoryService categoryService ;
-//    @Autowired
-//    private TourService tourService;
+    @Autowired
+    private TourService tourService;
  
     @RequestMapping("/")
-    public String index(Model model){
+    public String index(Model model,
+                @RequestParam(name = "kw", required = false) String kw,
+                @RequestParam(name = "page", defaultValue = "1")Integer page){
         model.addAttribute("categories", this.categoryService.getCategories());
-//        model.addAttribute("tours", this.tourService.getTours(null));
+        model.addAttribute("tours", this.tourService.getTours(kw,page));
+        model.addAttribute("selectPage",page);
+        model.addAttribute("tourCounter", this.tourService.countTour());
         return "index";
+    }
+    
+    @RequestMapping("/tours/{tourId}")
+    public String tourbookingdetail(Model model,
+            @PathVariable(name = "tourId") int id){
+        model.addAttribute("tour", this.tourService.getTourById(id));
+        return "tourbookingdetail";
     }
 }

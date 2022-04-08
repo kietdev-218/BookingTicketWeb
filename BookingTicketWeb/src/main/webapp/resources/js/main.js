@@ -1,6 +1,27 @@
 /* -------------------------------------
 		CUSTOM FUNCTION WRITE HERE
+
 -------------------------------------- */
+const addToCart = (id, destination, price) =>{
+    fetch("/BookingTicketWeb/api/add-cart",{
+        method: 'post',
+        body: JSON.stringify({
+            "id": id,
+            "destination" : destination,
+            "price" : price,
+            "quantity" : 1
+        }),
+        headers:{
+            "Content-Type" : "application/json"
+        }
+    }).then(res => res.json()).then(data => {
+        console.info(data)
+        let carts = document.getElementsByClassName("cartCounter");
+        for(let i = 0; i < carts.length; i++)
+            carts[i].innerText = data.totalQuantity;
+    })
+}
+
 "use strict";
 jQuery(document).on('ready', function() {
 	/* -------------------------------------

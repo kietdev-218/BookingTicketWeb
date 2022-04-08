@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache
+        Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!--client start-->
+    <definition name="baseLayoutClient" template="/WEB-INF/layout/clientbase.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/layout/client-header.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/layout/client-footer.jsp" />
+    </definition>
+    <definition name="index" extends="baseLayoutClient">
+        <put-attribute name="title" value="Booking Ticket - Group 3" />
+        <put-attribute name="content" value="/WEB-INF/pages/index.jsp" />
+    </definition>
+    <definition name="tourbookingdetail" extends="baseLayoutClient">
+        <put-attribute name="title" value="Booking Ticket - Group 3" />
+        <put-attribute name="content" value="/WEB-INF/pages/tourbookingdetail.jsp" />
+    </definition>
+    <!--client end-->
+    
+    
+    <!--admin start-->
+    <definition name="baseLayoutAdmin" template="/WEB-INF/layout/adminbase.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/layout/admin-header.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/layout/admin-footer.jsp" />
+    </definition>
+    <definition name="admin" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Admin - Group 3" />
+        <put-attribute name="content" value="/WEB-INF/pages/admin.jsp" />
+    </definition>
+    <definition name="tour-add" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Tour Management - Group 3" />
+        <put-attribute name="content" value="/WEB-INF/pages/tour-add.jsp" />
+    </definition>
+    <!--admin end-->
+</tiles-definitions>
+

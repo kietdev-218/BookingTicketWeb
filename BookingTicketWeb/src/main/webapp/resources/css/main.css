@@ -313,7 +313,18 @@ address { font-style: italic; }
 	width:100%;
 	float:left;
 }
-.tg-sectionspace { padding: 120px 0; }
+.tg-sectionspace {
+    padding-top: 50px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.tg-sectionspace2 {
+    padding-top: 50px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 .tg-locationmap {
 	width: 100%;
 	float: left;
@@ -562,7 +573,12 @@ li.tg-rss a { background:#ff6600; }
 .tg-sectiontitle {
 	width: 100%;
 	float: left;
-	padding: 0 0 30px;
+	padding: 0;
+}
+.tg-sectiontitle2 {
+	width: 100%;
+	float: left;
+	padding: 0;
 }
 .tg-sectiontitle h2 {
 	margin: 0;

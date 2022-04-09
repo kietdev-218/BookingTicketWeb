@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="tg-btnarea">
-                                <a class="tg-btn" href="#"><span>view cart</span></a>
+                                <a class="tg-btn" href="<c:url value="/cart-detail"/>"><span>view cart</span></a>
                             </div>
                         </div>
                     </li>

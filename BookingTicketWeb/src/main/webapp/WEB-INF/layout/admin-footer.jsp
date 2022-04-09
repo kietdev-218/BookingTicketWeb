@@ -11,7 +11,7 @@
     <div class="container-fluid">
 
         <div class="footer-copyright text-center">
-            <p class="text-body-light">2019 &copy; <a href="https://themeforest.net/user/codecarnival">Codecarnival</a></p>
+            <p class="text-body-light">Copyright &copy; 2022 by Group 3. All  rights reserved</p>
         </div>
 
     </div>

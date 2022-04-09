@@ -42,4 +42,9 @@ public class HomeController {
         model.addAttribute("tour", this.tourService.getTourById(id));
         return "tourbookingdetail";
     }
+    
+    @RequestMapping("/cart-detail")
+    public String cartDetail(){
+        return "cart-detail";
+    }
 }
